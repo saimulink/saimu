@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <h1 class="text-center py-2 text-2xl font-bold">SAIMU | LOGIN</h1>
+<h1 class="text-center py-2 text-2xl font-bold">LOGIN</h1>
   <div class="w-full flex flex-col gap-y-4">
     <UCard :ui="{ body: { base: 'grid grid-cols-3' } }">
       <div class="space-y-4">
