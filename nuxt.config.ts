@@ -1,5 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import Aura from '@primevue/themes/aura';
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui"]
+  modules: ["@nuxt/ui","@primevue/nuxt-module"],
+  css: ['~/assets/css/main.css'],
+  primevue: {
+    options: {
+        theme: {
+            preset: Aura,
+            options: {
+              darkModeSelector: '.my-app-dark',
+          }
+        }
+    }
+}
 })

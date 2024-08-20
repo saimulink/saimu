@@ -13,6 +13,12 @@
     "@nuxt/devtools": "latest",
     "@nuxt/ui": "^2.17.0",
     "@nuxtjs/supabase": "^1.3.5",
+    "@primevue/nuxt-module": "^4.0.4",
     "nuxt": "^3.12.4"
+  },
+  "dependencies": {
+    "@primevue/themes": "^4.0.4",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.4"
   }
 }
