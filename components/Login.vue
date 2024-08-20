@@ -1,5 +1,19 @@
 <script setup lang="ts">
-    const form = reactive({ email: 'mail@example.com', password: 'password' })
+   
+    const form = reactive({ email: null, password: null })
+    const auth = useSupabaseClient().auth
+    const login = async () => {
+    
+       const {error} = await auth.signInWithPassword({
+            email: form.email,
+            password: form.password,
+        }) 
+
+        if(error)
+            console.log(error)
+        else
+            navigateTo('/');
+    }
 </script>
 
 <template>
@@ -7,15 +21,17 @@
   <div class="w-full flex flex-col gap-y-4">
     <UCard :ui="{ body: { base: 'grid grid-cols-3' } }">
       <div class="space-y-4">
-        <UFormGroup label="Email" name="email">
-          <UInput v-model="form.email" />
-        </UFormGroup>
+        <UForm :state="form" class="space-y-4" v-on:submit="login">
+            <UFormGroup label="Email" name="email">
+            <UInput v-model="form.email" />
+            </UFormGroup>
 
-        <UFormGroup label="Password" name="password">
-          <UInput v-model="form.password" type="password" />
-        </UFormGroup>
+            <UFormGroup label="Password" name="password">
+            <UInput v-model="form.password" type="password" />
+            </UFormGroup>
 
-        <UButton label="Login" color="gray" block />
+            <UButton label="Login" type="submit" color="gray" block />
+        </UForm>
       </div>
 
       <UDivider label="OR" orientation="vertical" />
