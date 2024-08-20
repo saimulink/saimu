@@ -1,4 +1,3 @@
-
 <template>
     <div class="card">
         <Menubar :model="items">
@@ -16,6 +15,7 @@
             </template>
             <template #end>
                 <ColorScheme><USelect v-model="$colorMode.preference" :options="['system', 'light', 'dark']" /></ColorScheme>
+                <Logout v-if="user"/>
                 <!-- <div class="flex items-center gap-2">
                     <InputText placeholder="Search" type="text" class="w-32 sm:w-auto" />
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
@@ -27,6 +27,7 @@
 
 <script setup>
 import { ref } from "vue";
+const user = useSupabaseUser()
 
 const items = ref([
     {
