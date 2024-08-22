@@ -4,5 +4,7 @@
     })
 </script>
 <template>
+    <UContainer>
     <Login/>
+    </UContainer>
 </template>
